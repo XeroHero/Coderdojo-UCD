@@ -25,8 +25,8 @@ The sensor has 3 pins: VCC, DATA and GND
   We are going to ignore the pin 3 on the sensor shown in the diagram as the sensors we have only have 3 pins. The connections still remain identical.
   
 ## Code
-``
-    #include <dht.h>
+```
+#include <dht.h>
 
 #define DHT_PIN A0 //analog pin for sensor
 
@@ -48,5 +48,5 @@ void loop(){
         Serial.print(DHT.humidity+"%");
         delay(5000); //wait 5 seconds before accessing sensor again
 }
-``
+```
 
