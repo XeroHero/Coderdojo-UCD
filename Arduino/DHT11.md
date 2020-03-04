@@ -27,9 +27,10 @@ The sensor has 3 pins: VCC, DATA and GND
 ## Code
 ```
 
-#include "DHT.h" 	// Librairie des capteurs DHT
 
-#define DHT_PIN 2    // Changer le pin sur lequel est branché le DHT
+#include "DHT.h" 	// DHT sensor library
+
+#define DHT_PIN 2    // The pin on which our sensor DATA line is connected
 
 //define our sensor type
 
@@ -46,12 +47,17 @@ void setup() {
 
 void loop() {
 
-  delay(2000);
+  delay(2000); //give the sensor time to restart itself after each reading
 
 //read humidity
   float h = dht.readHumidity();
 //read temperature
   float t = dht.readTemperature();
+
+  if (isnan(h) || isnan(t)) {       
+    Serial.println("Error: bad read!"); // in case there are problems with the sensor, it's often a good idea to add some code to handle such unexpected events
+    return;
+  }
 
   Serial.print("Humidity: "); 
   Serial.print(h);
@@ -60,5 +66,4 @@ void loop() {
   Serial.print(t);
   Serial.print(" *C ");
 
-}
-```
+}```
