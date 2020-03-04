@@ -20,7 +20,7 @@ The sensor has 3 pins: VCC, DATA and GND
 
 ## Circuit Diagram
 
-  ``![image text](https://raw.githubusercontent.com/XeroHero/Coderdojo-UCD/master/Arduino/DHT11.jpg)``
+  ![Created with Fritzing](https://raw.githubusercontent.com/XeroHero/Coderdojo-UCD/master/Arduino/DHT11.jpg)
 
 
 ## Code
