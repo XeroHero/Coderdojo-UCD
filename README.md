@@ -11,11 +11,11 @@ Accompanying document available [here](https://docs.google.com/document/d/1MF7nE
 [Lesson 4 Code](https://raw.githubusercontent.com/XeroHero/Coderdojo-UCD-Python/master/random.py)
 
 
-#Arduino Code
+# Arduino Code
 
 Board Used: Arduino UNO Development Boards
 
-##Code:
+## Code:
 
 - [Lesson 1 - Blink an LED](https://raw.githubusercontent.com/XeroHero/Coderdojo-UCD/master/Arduino/blink.ino)
 
