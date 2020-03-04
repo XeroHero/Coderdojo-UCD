@@ -18,6 +18,12 @@ The sensor has 3 pins: VCC, DATA and GND
 
 - GND: Ground Negative line. This completes the circuit with the 5V from VCC.
 
+We can think of GND and VCC as the two terminals on a battery:
+
+![Battery diagram](https://raw.githubusercontent.com/XeroHero/Coderdojo-UCD/master/Arduino/battery.jpg)
+
+GND would be the - or negative terminal, while VCC would be the + or positive terminal.
+
 ## Circuit Diagram
 
   ![Created with Fritzing](https://raw.githubusercontent.com/XeroHero/Coderdojo-UCD/master/Arduino/DHT11.jpg)
