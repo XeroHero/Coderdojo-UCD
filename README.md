@@ -23,5 +23,4 @@ Board Used: Arduino UNO Development Boards
 
 - [Lesson 3 - DHT11 Temperature & Humidity Sensing](https://raw.githubusercontent.com/XeroHero/Coderdojo-UCD/master/Arduino/DHt11.ino)
 
-    - [Notes](https://raw.githubusercontent.com/XeroHero/Coderdojo-UCD/master/Arduino/DHT11.md)
-
+    - [Notes](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/DHT11.md)
