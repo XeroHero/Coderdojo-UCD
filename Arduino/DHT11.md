@@ -26,27 +26,39 @@ The sensor has 3 pins: VCC, DATA and GND
   
 ## Code
 ```
-#include <dht.h>
 
-#define DHT_PIN A0 //analog pin for sensor
+#include "DHT.h" 	// Librairie des capteurs DHT
 
-dht DHT;
+#define DHT_PIN 2    // Changer le pin sur lequel est branché le DHT
 
-void setup(){
+//define our sensor type
 
-        Serial.begin(9600);
-        delay(500); //system boot 0.5sec delay
-        Serial.println("DHT11 Humidiity & Temperature Sensor Excercise 1\n\n");
-        delay(1000); //sensor access delay
+#define DHT_TYPE DHT11 	// DHT 11 
+
+
+DHT dht(DHT_PIN, DHT_TYPE); 
+void setup() {
+  Serial.begin(9600); 
+  Serial.println("DHT11 test!");
+ 
+  dht.begin();
 }
 
-void loop(){
-        DHT.read11(DHT_PIN);
-        Serial.print("Current Temperature = ");q
-        Serial.print(DHT.temperature + " Degrees C\n");
-        Serial.print("Current Humidity =");
-        Serial.print(DHT.humidity+"%");
-        delay(5000); //wait 5 seconds before accessing sensor again
+void loop() {
+
+  delay(2000);
+
+//read humidity
+  float h = dht.readHumidity();
+//read temperature
+  float t = dht.readTemperature();
+
+  Serial.print("Humidity: "); 
+  Serial.print(h);
+  Serial.print(" %\t");
+  Serial.print("Temperature: "); 
+  Serial.print(t);
+  Serial.print(" *C ");
+
 }
 ```
-
