@@ -26,7 +26,7 @@ The sensor has 3 pins: VCC, DATA and GND
   
 ## Code
 ```
-#include "DHT.h" 	// DHT sensor library
+#include "DHT.h" 	// DHT sensor library (https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/dht.h)
 
 #define DHT_PIN 2    // The pin on which our sensor DATA line is connected
 
@@ -67,3 +67,4 @@ void loop() {
 }
 ```
 
+NB: If header file cannot be compiled, a copy is available [here](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/dht.h)
