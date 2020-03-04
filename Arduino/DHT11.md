@@ -26,8 +26,6 @@ The sensor has 3 pins: VCC, DATA and GND
   
 ## Code
 ```
-
-
 #include "DHT.h" 	// DHT sensor library
 
 #define DHT_PIN 2    // The pin on which our sensor DATA line is connected
@@ -66,4 +64,6 @@ void loop() {
   Serial.print(t);
   Serial.print(" *C ");
 
-}```
+}
+```
+
