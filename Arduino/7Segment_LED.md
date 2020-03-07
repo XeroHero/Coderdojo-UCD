@@ -1,25 +1,24 @@
-How to Set up 7-Segment Displays on the Arduino
-
-Posted by Krishna Pattabiraman | Arduino | 16
-How to Set up 7-Segment Displays on the Arduino
+#7-Segment Displays on the Arduino
 
 Seven segment displays are used in many day to day consumer devices like microwave ovens, washing machines, and air conditioners. They are a simple but effective way to display numerical data like time or quantity. Since they are made out of LEDs, they are a low cost option for displaying information.
 
-In this tutorial I’m going to show you how to set up and program single digit and multi-digit seven segment displays on an Arduino.
+In this tutorial we will see how to set up and program single digit and multi-digit seven segment displays on an Arduino.
 
 Seven segment displays come in a wide variety of sizes and colors. Red, blue, and green are the easiest colors to find. Sizes range from small 0.56 inch displays up to large 4 inch and even 6.5 inch displays. Some displays have a single digit, and others have two or four.
 
 ![Arduino 7 Segment Display - Single Digit and 4 Digit Displays](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/7_Segment_Example_photo.jpg)
 
 Before we start working with 7 segment displays, we need to understand some of the basics of LEDs and how to control them.
-LED Basics
+
+## 1LED Basics
 
 A single LED consists of two terminals, an anode and a cathode. The anode is the positive terminal and the cathode is the negative terminal:
 
 ![Arduino 7 Segment Display Tutorial - LED Anode and Cathode](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/LED_Cathode_Anode.png)
 
 To power the LED, you connect the cathode to ground and the anode to the voltage supply. The LED can be turned on or off by switching power at the anode or the cathode.
-Anode to GPIO
+
+###Anode to GPIO
 
 With the LED’s anode connected to a digital pin, the cathode is connected to ground:
 
@@ -30,11 +29,12 @@ Note: All LEDs need a current limiting resistor placed on either the anode side 
 To light up an LED with the anode connected to a digital pin, you set the digital pin to HIGH:
 
 In the void setup() block, we configure GPIO pin 7 as an output with pinMode(7, OUTPUT); and drive it high with digitalWrite(7, HIGH);.
-Cathode to GPIO
+
+###Cathode to GPIO
 
 With an LED’s cathode connected to a digital pin, the anode is connected to Vcc. To turn on the LED, the digital pin is switched LOW, which completes the circuit to ground:
 
-[Arduino 7-Segment Display Tutorial - Cathode to GPIO](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/cathode_GPIO_connectio.png)
+![Arduino 7-Segment Display Tutorial - Cathode to GPIO](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/cathode_GPIO_connectio.png)
 
 In this case we drive GPIO pin 7 LOW with digitalWrite(7, LOW);. This closes the circuit and allows current to flow from Vcc to ground:
 
