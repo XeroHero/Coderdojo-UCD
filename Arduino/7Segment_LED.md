@@ -342,3 +342,5 @@ This will output the temperature in Fahrenheit. To display the temperature in Ce
 By itself, the display will update every time the temperature changes even slightly. This creates an annoying flickering. In order to deal with this, we introduce a timer mechanism, where we only read the value from the thermistor every 300 milliseconds (lines 30 to 34).
 
 The temperature variable “T” is printed to the display on line 35 with sevseg.setNumber(T, 2, false);.
+
+Example from [https://www.circuitbasics.com/arduino-7-segment-display-tutorial/](https://www.circuitbasics.com/arduino-7-segment-display-tutorial/)
