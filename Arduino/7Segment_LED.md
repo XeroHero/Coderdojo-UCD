@@ -1,4 +1,4 @@
-#7-Segment Displays on the Arduino
+# 7-Segment Displays on the Arduino
 
 Seven segment displays are used in many day to day consumer devices like microwave ovens, washing machines, and air conditioners. They are a simple but effective way to display numerical data like time or quantity. Since they are made out of LEDs, they are a low cost option for displaying information.
 
