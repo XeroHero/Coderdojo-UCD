@@ -18,7 +18,7 @@ A single LED consists of two terminals, an anode and a cathode. The anode is the
 
 To power the LED, you connect the cathode to ground and the anode to the voltage supply. The LED can be turned on or off by switching power at the anode or the cathode.
 
-###Anode to GPIO
+### Anode to GPIO
 
 With the LED’s anode connected to a digital pin, the cathode is connected to ground:
 
@@ -30,7 +30,7 @@ To light up an LED with the anode connected to a digital pin, you set the digita
 
 In the void setup() block, we configure GPIO pin 7 as an output with pinMode(7, OUTPUT); and drive it high with digitalWrite(7, HIGH);.
 
-###Cathode to GPIO
+### Cathode to GPIO
 
 With an LED’s cathode connected to a digital pin, the anode is connected to Vcc. To turn on the LED, the digital pin is switched LOW, which completes the circuit to ground:
 
@@ -46,7 +46,7 @@ Seven segment displays consist of 7 LEDs, called segments, arranged in the shape
 
 Each segment on the display can be controlled individually, just like a regular LED.
 
-##Connecting 7-Segment Displays to the Arduino
+## Connecting 7-Segment Displays to the Arduino
 
 Single digit seven segment displays typically have 10 pins. Two pins connect to ground, and the other 8 connect to each of the segments. Here is a pin diagram of the popular 5161AS common cathode display:
 
@@ -78,13 +78,13 @@ In the example programs below, the segment pins connect to the Arduino according
 
 ![Arduino 7-Segment Display Tutorial - Pin Connections Table](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/ConnectionTableGpioSegment.png)
 
-##Programming Single Digit Displays
+## Programming Single Digit Displays
 
-###Install the Library
+### Install the Library
 
 We’ll use a library called SevSeg to control the display. The SevSeg library works with single digit and multi-digit seven segment displays. You can download the library’s ZIP file from GitHub or download it here:
 
-####Printing Numbers to the Display
+#### Printing Numbers to the Display
 
 This program will print the number “4” to a single digit 7-segment display:
 
@@ -113,19 +113,19 @@ In this program, we create a sevseg object on line 2. To use additional displays
 
 hardwareConfig = COMMON_CATHODE; This sets the type of display. I’m using a common cathode, but if you’re using a common anode then use COMMON_ANODE instead.
 
-byte numDigits = 1; This sets the number of digits on your display. I’m using a single digit display, so I set it to 1. If you’re using a 4 digit display, set this to 4.
+`byte numDigits = 1;` This sets the number of digits on your display. I’m using a single digit display, so I set it to 1. If you’re using a 4 digit display, set this to 4.
 
-byte digitPins[] = {}; Creates an array that defines the ground pins when using a 4 digit or multi-digit display. Leave it empty if you have a single digit display. For example, if you have a 4 digit display and want to use Arduino pins 10, 11, 12, and 13 as the digit ground pins, you would use this: byte digitPins[] = {10, 11, 12, 13};. See the 4 digit display example below for more info.
+`byte digitPins[] = {};` Creates an array that defines the ground pins when using a 4 digit or multi-digit display. Leave it empty if you have a single digit display. For example, if you have a 4 digit display and want to use Arduino pins 10, 11, 12, and 13 as the digit ground pins, you would use this: byte digitPins[] = {10, 11, 12, 13};. See the 4 digit display example below for more info.
 
-byte segmentPins[] = {6, 5, 2, 3, 4, 7, 8, 9}; This declares an array that defines which Arduino pins are connected to each segment of the display. The order is alphabetical (A, B, C, D, E, F, G, DP where DP is the decimal point). So in this case, Arduino pin 6 connects to segment A, pin 5 connects to segment B, pin 2 connects to segment C, and so on.
+`byte segmentPins[] = {6, 5, 2, 3, 4, 7, 8, 9};` This declares an array that defines which Arduino pins are connected to each segment of the display. The order is alphabetical (A, B, C, D, E, F, G, DP where DP is the decimal point). So in this case, Arduino pin 6 connects to segment A, pin 5 connects to segment B, pin 2 connects to segment C, and so on.
 
-resistorsOnSegments = true; This needs to be set to true if your current limiting resistors are in series with the segment pins. If the resistors are in series with the digit pins, set this to false. Set this to true when using multi-digit displays.
+`resistorsOnSegments = true;` This needs to be set to true if your current limiting resistors are in series with the segment pins. If the resistors are in series with the digit pins, set this to false. Set this to true when using multi-digit displays.
 
-sevseg.setBrightness(90); This function sets the brightness of the display. It can be adjusted from 0 to 100.
+`sevseg.setBrightness(90);` This function sets the brightness of the display. It can be adjusted from 0 to 100.
 
-sevseg.setNumber(); This function prints the number to the display. For example, sevseg.setNumber(4); will print the number “4” to the display. You can also print numbers with decimal points. For example, to print the number “4.999”, you would use sevseg.setNumber(4999, 3);.  The second parameter (the 3) defines where the decimal point is located. In this case it’s 3 digits from the right most digit. On a single digit display, setting the second parameter to “0” turns on the decimal point, while setting it to “1” turns it off.
+`sevseg.setNumber();` This function prints the number to the display. For example, `sevseg.setNumber(4);` will print the number “4” to the display. You can also print numbers with decimal points. For example, to print the number “4.999”, you would use `sevseg.setNumber(4999, 3);`.  The second parameter (the 3) defines where the decimal point is located. In this case it’s 3 digits from the right most digit. On a single digit display, setting the second parameter to “0” turns on the decimal point, while setting it to “1” turns it off.
 
-sevseg.refreshDisplay(); This function is required at the end of the loop section to continue displaying the number.
+`sevseg.refreshDisplay();` This function is required at the end of the loop section to continue displaying the number.
 Count Up Timer
 
 This simple program will count up from zero to 9 and then loop back to the start:
@@ -157,10 +157,11 @@ void loop(){
 
 The code is similar to the previous sketch. The only difference is that we create a count variable “i” in the for statement on line 16 and increment it one number at a time.
 
-The sevseg.setNumber(i, i%2); function prints the value of i. The i%2 argument divides i by 2 and returns the remainder, which causes the decimal point to turn on every other number.
+The `sevseg.setNumber(i, i%2);` function prints the value of `i`. The `i%2` argument divides `i` by 2 and returns the remainder, which causes the decimal point to turn on every other number.
 
 The count up timer is a nice way to demonstrate the basics of how to program the display, but now let’s try to make something more interesting.
-Rolling Dice
+
+##### Rolling Dice
 
 This example consists of a push button and a single 7 segment display. Every time the push button is pressed and held, the display loops through numbers 0-9 rapidly. Once the button is released, the display continues to loop for a period of time almost equal to the time the button was pressed, and then displays a number along with the decimal point to indicate the new number.
 
@@ -239,7 +240,7 @@ void loop(){
 }
 ```
 
-#4 Digit 7-Segment Displays
+# 4 Digit 7-Segment Displays
 
 So far we have only worked with single digit 7-segment displays. To display information such as the time or temperature, you will want to use a 2 or 4 digit display, or connect multiple single digit displays side by side.
 
@@ -284,10 +285,10 @@ void loop(){
 
 In the code above, we set the number of digits in line 5 with byte numDigits = 4;.
 
-Since multi-digit displays use digit pins, we also need to define which Arduino pins will connect to the digit pins. Using byte digitPins[] = {10, 11, 12, 13}; on line 6 sets Arduino pin 10 as the first digit pin, Arduino pin 11 to the second digit pin, and so on.
+Since multi-digit displays use digit pins, we also need to define which Arduino pins will connect to the digit pins. Using `byte digitPins[] = {10, 11, 12, 13};` on line 6 sets Arduino pin 10 as the first digit pin, Arduino pin 11 to the second digit pin, and so on.
 
 To print numbers with a decimal point, we set the second parameter in sevseg.setNumber(4999, 3); to three, which puts it three decimal places from the right most digit.
-Temperature Display
+#### Temperature Display
 
 This example reads the temperature from a thermistor and displays it on a 4 digit display.
 
