@@ -9,21 +9,21 @@ In this tutorial I’m going to show you how to set up and program single digit 
 
 Seven segment displays come in a wide variety of sizes and colors. Red, blue, and green are the easiest colors to find. Sizes range from small 0.56 inch displays up to large 4 inch and even 6.5 inch displays. Some displays have a single digit, and others have two or four.
 
-Arduino 7 Segment Display - Single Digit and 4 Digit Displays
+![Arduino 7 Segment Display - Single Digit and 4 Digit Displays](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/7_Segment_Example_photo.jpg)
 
 Before we start working with 7 segment displays, we need to understand some of the basics of LEDs and how to control them.
 LED Basics
 
 A single LED consists of two terminals, an anode and a cathode. The anode is the positive terminal and the cathode is the negative terminal:
 
-Arduino 7 Segment Display Tutorial - LED Anode and Cathode
+![Arduino 7 Segment Display Tutorial - LED Anode and Cathode](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/LED_Cathode_Anode.png)
 
 To power the LED, you connect the cathode to ground and the anode to the voltage supply. The LED can be turned on or off by switching power at the anode or the cathode.
 Anode to GPIO
 
 With the LED’s anode connected to a digital pin, the cathode is connected to ground:
 
-Arduino 7 Segment Display Tutorial - Anode to GPIO
+![Arduino 7 Segment Display Tutorial - Anode to GPIO](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/anode_GPIO_connection.png)
 
 Note: All LEDs need a current limiting resistor placed on either the anode side or cathode side to prevent the LED from burning out. The resistor value will determine how bright the LED shines. 1K ohms is a good place to start, but you can calculate the ideal value with an LED resistor calculator.
 
@@ -34,15 +34,15 @@ Cathode to GPIO
 
 With an LED’s cathode connected to a digital pin, the anode is connected to Vcc. To turn on the LED, the digital pin is switched LOW, which completes the circuit to ground:
 
-Arduino 7-Segment Display Tutorial - Cathode to GPIO
+[Arduino 7-Segment Display Tutorial - Cathode to GPIO](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/cathode_GPIO_connectio.png)
 
 In this case we drive GPIO pin 7 LOW with digitalWrite(7, LOW);. This closes the circuit and allows current to flow from Vcc to ground:
 
-How 7-Segment Displays Work
+## How 7-Segment Displays Work
 
 Seven segment displays consist of 7 LEDs, called segments, arranged in the shape of an “8”. Most 7-segment displays actually have 8 segments, with a dot on the right side of the digit that serves as a decimal point. Each segment is named with a letter A to G, and DP for the decimal point:
 
-Arduino 7-Segment Display Tutorial - Segment Layout Diagram
+![Arduino 7-Segment Display Tutorial - Segment Layout Diagram](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/7Segment_LED-Numbering.png)
 
 Each segment on the display can be controlled individually, just like a regular LED.
 
@@ -56,8 +56,9 @@ Common Anode Displays
 
 In common anode displays, all of the anodes are connected to Vcc, and individual segments are turned on and off by switching power to the cathodes:
 
-Arduino 7-Segment Tutorial - Common Anode Schematic
-Connecting 7-Segment Displays to the Arduino
+![Arduino 7-Segment Tutorial - Common Anode Schematic](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/7Segment_Connection.png)
+
+##Connecting 7-Segment Displays to the Arduino
 
 Single digit seven segment displays typically have 10 pins. Two pins connect to ground, and the other 8 connect to each of the segments. Here is a pin diagram of the popular 5161AS common cathode display:
 
