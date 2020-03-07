@@ -28,7 +28,7 @@ Note: All LEDs need a current limiting resistor placed on either the anode side 
 
 To light up an LED with the anode connected to a digital pin, you set the digital pin to HIGH:
 
-In the void setup() block, we configure GPIO pin 7 as an output with pinMode(7, OUTPUT); and drive it high with digitalWrite(7, HIGH);.
+In the void `setup()` block, we configure GPIO pin 7 as an output with `pinMode(7, OUTPUT);` and drive it high with `digitalWrite(7, HIGH);`.
 
 ### Cathode to GPIO
 
@@ -36,7 +36,7 @@ With an LED’s cathode connected to a digital pin, the anode is connected to Vc
 
 ![Arduino 7-Segment Display Tutorial - Cathode to GPIO](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/cathode_GPIO_connectio.png)
 
-In this case we drive GPIO pin 7 LOW with digitalWrite(7, LOW);. This closes the circuit and allows current to flow from Vcc to ground:
+In this case we drive GPIO pin 7 LOW with `digitalWrite(7, LOW);`. This closes the circuit and allows current to flow from Vcc to ground:
 
 ## How 7-Segment Displays Work
 
@@ -128,7 +128,7 @@ In this program, we create a `sevseg` object on line 2. To use additional displa
 `sevseg.setNumber();` This function prints the number to the display. For example, `sevseg.setNumber(4);` will print the number “4” to the display. You can also print numbers with decimal points. For example, to print the number “4.999”, you would use `sevseg.setNumber(4999, 3);`.  The second parameter (the 3) defines where the decimal point is located. In this case it’s 3 digits from the right most digit. On a single digit display, setting the second parameter to “0” turns on the decimal point, while setting it to “1” turns it off.
 
 `sevseg.refreshDisplay();` This function is required at the end of the loop section to continue displaying the number.
-Count Up Timer
+##### Count Up Timer
 
 This simple program will count up from zero to 9 and then loop back to the start:
 
@@ -303,7 +303,8 @@ If you have questions about using a thermistor, or just want to learn more about
 
 Once everything is connected, upload this code to the Arduino:
 
-``` #include "SevSeg.h"
+```
+#include "SevSeg.h"
 SevSeg sevseg;
 
 int ThermistorPin = 0;
