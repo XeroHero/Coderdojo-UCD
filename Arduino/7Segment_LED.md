@@ -82,7 +82,9 @@ In the example programs below, the segment pins connect to the Arduino according
 
 ### Install the Library
 
-We’ll use a library called SevSeg to control the display. The SevSeg library works with single digit and multi-digit seven segment displays. You can download the library’s ZIP file from GitHub or download it here:
+Look for the Library in the Arduino Library Manager menu. This is accessed via Tools>Manage Libraries... menu of the Arduino IDE Interface.
+
+![Install sevSeg.h](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/sevSeg_Header_Install.png)
 
 #### Printing Numbers to the Display
 
@@ -109,17 +111,17 @@ void loop(){
 }
 ```
 
-In this program, we create a sevseg object on line 2. To use additional displays, you can create another object and call the relevant functions for that object. The display is initialized with the sevseg.begin() function on line 11. The other functions are explained below:
+In this program, we create a `sevseg` object on line 2. To use additional displays, you can create another object and call the relevant functions for that object. The display is initialized with the `sevseg.begin()` function on line 11. The other functions are explained below:
 
-hardwareConfig = COMMON_CATHODE; This sets the type of display. I’m using a common cathode, but if you’re using a common anode then use COMMON_ANODE instead.
+`hardwareConfig = COMMON_CATHODE;` This sets the type of display. I’m using a common cathode, but if you’re using a common anode then use `COMMON_ANODE` instead.
 
 `byte numDigits = 1;` This sets the number of digits on your display. I’m using a single digit display, so I set it to 1. If you’re using a 4 digit display, set this to 4.
 
-`byte digitPins[] = {};` Creates an array that defines the ground pins when using a 4 digit or multi-digit display. Leave it empty if you have a single digit display. For example, if you have a 4 digit display and want to use Arduino pins 10, 11, 12, and 13 as the digit ground pins, you would use this: byte digitPins[] = {10, 11, 12, 13};. See the 4 digit display example below for more info.
+`byte digitPins[] = {};` Creates an array that defines the ground pins when using a 4 digit or multi-digit display. Leave it empty if you have a single digit display. For example, if you have a 4 digit display and want to use Arduino pins 10, 11, 12, and 13 as the digit ground pins, you would use this: `byte digitPins[] = {10, 11, 12, 13};`. See the 4 digit display example below for more info.
 
 `byte segmentPins[] = {6, 5, 2, 3, 4, 7, 8, 9};` This declares an array that defines which Arduino pins are connected to each segment of the display. The order is alphabetical (A, B, C, D, E, F, G, DP where DP is the decimal point). So in this case, Arduino pin 6 connects to segment A, pin 5 connects to segment B, pin 2 connects to segment C, and so on.
 
-`resistorsOnSegments = true;` This needs to be set to true if your current limiting resistors are in series with the segment pins. If the resistors are in series with the digit pins, set this to false. Set this to true when using multi-digit displays.
+`resistorsOnSegments = true;` This needs to be set to true if your current limiting resistors are in series with the segment pins. If the resistors are in series with the digit pins, set this to `false`. Set this to `true` when using multi-digit displays.
 
 `sevseg.setBrightness(90);` This function sets the brightness of the display. It can be adjusted from 0 to 100.
 
@@ -287,7 +289,8 @@ In the code above, we set the number of digits in line 5 with `byte numDigits = 
 
 Since multi-digit displays use digit pins, we also need to define which Arduino pins will connect to the digit pins. Using `byte digitPins[] = {10, 11, 12, 13};` on line 6 sets Arduino pin 10 as the first digit pin, Arduino pin 11 to the second digit pin, and so on.
 
-To print numbers with a decimal point, we set the second parameter in sevseg.setNumber(4999, 3); to three, which puts it three decimal places from the right most digit.
+To print numbers with a decimal point, we set the second parameter in `sevseg.setNumber(4999, 3);` to three, which puts it three decimal places from the right most digit.
+
 #### Temperature Display
 
 This example reads the temperature from a thermistor and displays it on a 4 digit display.
@@ -342,6 +345,6 @@ This will output the temperature in Fahrenheit. To display the temperature in Ce
 
 By itself, the display will update every time the temperature changes even slightly. This creates an annoying flickering. In order to deal with this, we introduce a timer mechanism, where we only read the value from the thermistor every 300 milliseconds (lines 30 to 34).
 
-The temperature variable “T” is printed to the display on line 35 with sevseg.setNumber(T, 2, false);.
+The temperature variable “T” is printed to the display on line 35 with `sevseg.setNumber(T, 2, false);`.
 
 Example from [https://www.circuitbasics.com/arduino-7-segment-display-tutorial/](https://www.circuitbasics.com/arduino-7-segment-display-tutorial/)
