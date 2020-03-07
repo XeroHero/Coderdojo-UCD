@@ -46,57 +46,45 @@ Seven segment displays consist of 7 LEDs, called segments, arranged in the shape
 
 Each segment on the display can be controlled individually, just like a regular LED.
 
-There are two types of 7-segment displays – common cathode and common anode.
-Common Cathode Displays
-
-In common cathode displays, all of the cathodes are connected to ground and individual segments are turned on and off by switching power to the anodes:
-
-Arduino 7-Segment Tutorial - Common Cathode Schematic
-Common Anode Displays
-
-In common anode displays, all of the anodes are connected to Vcc, and individual segments are turned on and off by switching power to the cathodes:
-
-![Arduino 7-Segment Tutorial - Common Anode Schematic](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/7Segment_Connection.png)
-
 ##Connecting 7-Segment Displays to the Arduino
 
 Single digit seven segment displays typically have 10 pins. Two pins connect to ground, and the other 8 connect to each of the segments. Here is a pin diagram of the popular 5161AS common cathode display:
 
-Arduino 7-Segment Display Tutorial - Pin Diagram
+![Arduino 7-Segment Display Tutorial - Pin Diagram](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/7Segment_Connection.png)
 
 Before you can connect your display to the Arduino, you need to know if it’s common anode or common cathode, and which pins connect to each segment. This information should be in the datasheet, but if you can’t find the datasheet or you don’t know your display’s part number, I’ll show you how to figure this out below…
 How to Tell If You Have a Common Anode or Common Cathode Display
 
 To determine if a display is common anode or common cathode, you can probe the pins with a test circuit constructed like this:
 
-Arduino 7-Segment Tutorial - Finding the Pinout
+![Arduino 7-Segment Tutorial - Finding the Pinout](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/checking_Anode_Cathode.png)
 
 Connect the ground (black) wire to any pin of the display. Then insert the positive (red) wire into each one of the other pins. If no segments light up, move the ground wire over to another pin and repeat the process. Do this until at least one segment lights up.
 
 When the first segment lights up, leave the ground wire where it is, and connect the positive wire to each one of the other pins again. If a different segment lights up with each different pin, you have a common cathode display. The pin that’s connected to the ground wire is one of the common pins. There should be two of these.
 
 If two different pins light up the same segment, you have a common anode display. The pin that’s connected to the positive wire is one of the common pins. Now if you connect the ground wire to each one of the other pins, you should see that a different segment lights up with each different pin.
-How to Determine the Pinout for Your Display
+
+## How to Determine the Pinout for Your Display
 
 Now draw a diagram showing the pins on your display. With the common pin connected to the ground wire (common cathode) or positive wire (common anode), probe each pin with the other wire. When a segment lights up, write down the segment name (A-G, or DP) next to the corresponding pin on your diagram.
 Connecting Single Digit Displays to the Arduino
 
 Once you have the pin layout figured out, connecting the display to an Arduino is pretty easy. This diagram shows how to connect a single digit 5161AS display (notice the 1K ohm current limiting resistor connected in series with the common pins):
 
-Arduino 7-Segment Display - 1 Digit Wiring Diagram
+![Arduino 7-Segment Display - 1 Digit Wiring Diagram](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/single_Digit_Connection_Arduino.png)
 
 In the example programs below, the segment pins connect to the Arduino according to this table:
 
-Arduino 7-Segment Display Tutorial - Pin Connections Table
-Programming Single Digit Displays
-Install the Library
+![Arduino 7-Segment Display Tutorial - Pin Connections Table](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/ConnectionTableGpioSegment.png)
+
+##Programming Single Digit Displays
+
+###Install the Library
 
 We’ll use a library called SevSeg to control the display. The SevSeg library works with single digit and multi-digit seven segment displays. You can download the library’s ZIP file from GitHub or download it here:
 
-Circuit Basics ZIP Icon SevSeg.zip
-
-To install it, open the Arduino IDE, go to Sketch > Include Library > Add .ZIP Library, then select the SevSeg ZIP file that you downloaded.
-Printing Numbers to the Display
+####Printing Numbers to the Display
 
 This program will print the number “4” to a single digit 7-segment display:
 
@@ -178,7 +166,7 @@ This example consists of a push button and a single 7 segment display. Every tim
 
 To build the circuit (with the 5161AS display), connect it like this:
 
-Arduino 7-Segment Display - Rolling Dice
+![Arduino 7-Segment Display - Rolling Dice](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/single_Digit_Connection_Arduino.png)
 
 Then upload this program to the Arduino:
 
@@ -251,25 +239,23 @@ void loop(){
 }
 ```
 
-4 Digit 7-Segment Displays
+#4 Digit 7-Segment Displays
 
 So far we have only worked with single digit 7-segment displays. To display information such as the time or temperature, you will want to use a 2 or 4 digit display, or connect multiple single digit displays side by side.
 
-Arduino 7 Segment Tutorial - 4 Digit Display
-
 In multi-digit displays, one segment pin (A, B, C, D, E, F, G, and DP) controls the same segment on all of the digits. Multi-digit displays also have separate common pins for each digit. These are the digit pins. You can turn a digit on or off by switching the digit pin.
 
-Arduino 7-Segment Tutorial - 4 Digit Display Schematic
+![Arduino 7 Segment Tutorial - 4 Digit Display](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/4_Digit_Connection.png)
 
 I’m using a 4 digit 7-segment display with the model number 5641AH, but the wiring diagrams below will also work with the 5461AS.
 
 Here is a diagram showing the pinout of these displays:
 
-Arduino 7-Segment Tutorial - 4 Digit Display Pin Diagram
+![Arduino 7-Segment Tutorial - 4 Digit Display Pin Diagram](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/4_Digit_Pinout.png)
 
 The digit pins D1, D2, D3 and D4 need to be connected to current limiting resistors, since they are the common terminals of the digits. The connections are shown below:
 
-Arduino 7-Segment Display - 4 Digit Display Connection Diagram
+![Arduino 7-Segment Display - 4 Digit Display Connection Diagram](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/4_Digit_Arduino_Connection.png)
 
 This simple program will print the number “4.999” to the display:
 
@@ -307,7 +293,7 @@ This example reads the temperature from a thermistor and displays it on a 4 digi
 
 Connect the circuit like this:
 
-Arduino 7-Segment Display - 4 Digit Temperature Display
+![Arduino 7-Segment Display - 4 Digit Temperature Display](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/4_Digit_Thermistor.png)
 
 If you have questions about using a thermistor, or just want to learn more about them, check out our other tutorial on using a thermistor with an Arduino.
 
