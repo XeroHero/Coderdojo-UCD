@@ -283,7 +283,7 @@ void loop(){
 
 ```
 
-In the code above, we set the number of digits in line 5 with byte numDigits = 4;.
+In the code above, we set the number of digits in line 5 with `byte numDigits = 4;`.
 
 Since multi-digit displays use digit pins, we also need to define which Arduino pins will connect to the digit pins. Using `byte digitPins[] = {10, 11, 12, 13};` on line 6 sets Arduino pin 10 as the first digit pin, Arduino pin 11 to the second digit pin, and so on.
 
