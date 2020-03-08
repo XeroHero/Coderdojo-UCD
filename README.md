@@ -14,7 +14,7 @@ Board Used: Arduino UNO Development Boards
 
     - [Notes](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/DHT11.md)
 
-- [Lesson 4 - 7-Segment Display Panels](https://raw.githubusercontent.com/XeroHero/Coderdojo-UCD/master/Arduino/7Segment_LED.md)
+- [Lesson 4 - 7-Segment Display Panels](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/7Segment_LED.md)
 	
 # Python
 
