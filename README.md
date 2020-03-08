@@ -14,10 +14,8 @@ Board Used: Arduino UNO Development Boards
 
     - [Notes](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/DHT11.md)
 
-- [Lesson 4 - A (Different) Random Number Generator](https://raw.githubusercontent.com/XeroHero/Coderdojo-UCD/master/Arduino/randomNumberGenerator.ino)
+- [Lesson 4 - 7-Segment Display Panels](https://raw.githubusercontent.com/XeroHero/Coderdojo-UCD/master/Arduino/7Segment_LED.md)
 	
-	- [Notes](https://github.com/XeroHero/Coderdojo-UCD/blob/master/Arduino/RandomNumberGenerator.md)
-
 # Python
 
 Please copy-paste these codes into [repl.it](repl.it) to run them. Ensure you select *Python 3.7* as the language, otherwise it may not run correctly.
