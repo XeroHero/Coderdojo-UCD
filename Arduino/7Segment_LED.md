@@ -10,7 +10,7 @@ Seven segment displays come in a wide variety of sizes and colors. Red, blue, an
 
 Before we start working with 7 segment displays, we need to understand some of the basics of LEDs and how to control them.
 
-## 1LED Basics
+## LED Basics - Recap from a few weeks ago...
 
 A single LED consists of two terminals, an anode and a cathode. The anode is the positive terminal and the cathode is the negative terminal:
 
