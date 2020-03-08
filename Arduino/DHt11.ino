@@ -14,7 +14,7 @@ void setup(){
 
 void loop(){
 	DHT.read11(DHT_PIN);
-	Serial.print("Current Temperature = ");q
+	Serial.print("Current Temperature = ");
 	Serial.print(DHT.temperature + " Degrees C\n");
 	Serial.print("Current Humidity =");
 	Serial.print(DHT.humidity+"%");
